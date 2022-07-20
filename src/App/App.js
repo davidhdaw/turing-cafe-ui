@@ -11,13 +11,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    getReservations().then(data => this.setState({reservations: data}))
+    this.updateReservations()
   }
 
-  addReservation = (newReservation) => {
-    let allReservations = this.state.reservations
-    allReservations.push(newReservation)
-    this.setState({reservations: allReservations})
+  updateReservations = () => {
+    getReservations().then(data => this.setState({reservations: data}))
   }
 
 
@@ -27,7 +25,7 @@ class App extends Component {
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-          <ReservationForm addReservation={this.addReservation}/>
+          <ReservationForm updateReservations={this.updateReservations}/>
         </div>
         <div className='resy-container'>
           <ReservationArray reservations={this.state.reservations} />

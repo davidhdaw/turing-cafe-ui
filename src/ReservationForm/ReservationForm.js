@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './ReservationForm.css'
+import { MakeReservation } from '../apiCalls'
 
 class ReservationForm extends Component {
     state = {
@@ -16,9 +17,9 @@ class ReservationForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     let reservation = this.state
-    reservation.id = Date.now()
-    console.log(reservation)
-    this.props.addReservation(reservation)
+    reservation.number = parseInt(reservation.number)
+    MakeReservation(reservation)
+    this.props.updateReservations()
   }
 
   render() {
