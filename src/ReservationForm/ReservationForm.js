@@ -14,10 +14,11 @@ class ReservationForm extends Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     let reservation = this.state
     reservation.id = Date.now()
-    console.log(reservation);
+    console.log(reservation)
+    this.props.addReservation(reservation)
   }
 
   render() {

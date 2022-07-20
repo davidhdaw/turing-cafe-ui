@@ -14,6 +14,12 @@ class App extends Component {
     getReservations().then(data => this.setState({reservations: data}))
   }
 
+  addReservation = (newReservation) => {
+    let allReservations = this.state.reservations
+    allReservations.push(newReservation)
+    this.setState({reservations: allReservations})
+  }
+
 
 
   render() {
@@ -21,7 +27,7 @@ class App extends Component {
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-          <ReservationForm />
+          <ReservationForm addReservation={this.addReservation}/>
         </div>
         <div className='resy-container'>
           <ReservationArray reservations={this.state.reservations} />
