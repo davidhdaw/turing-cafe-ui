@@ -1,10 +1,10 @@
 import React from 'react'
 import ReservationCard from '../ReservationCard/ReservationCard'
 
-const ReservationArray = ({reservations}) => {
+const ReservationArray = ({reservations, updateReservations}) => {
     return(
        <>
-        {reservations.map(reservation => <ReservationCard ReservationData={reservation} />)}       
+        {reservations.map(reservation => <ReservationCard ReservationData={reservation} updateReservations={updateReservations} />)}       
        </> 
     )
 }

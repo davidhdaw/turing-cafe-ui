@@ -22,3 +22,16 @@ export const MakeReservation = async (reservation) => {
       'http://localhost:3001/api/v1/reservations', postInfo 
     )
 }
+
+export const DeleteReservation = async (id) => {
+    const url = `http://localhost:3001/api/v1/reservations/${id}`
+    const deleteInfo = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+          },
+    }
+    await fetch(
+      url, deleteInfo 
+    )
+}
