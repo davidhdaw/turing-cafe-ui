@@ -8,7 +8,7 @@ const ReservationCard = ({ReservationData}) => {
         <p>{ReservationData.date}</p>
         <p>{ReservationData.time}</p>
         <p>Number of Guests: {ReservationData.number}</p>
-        <button className="CancelButton">Cancel</button>
+        <button className="cancel-button">Cancel</button>
         </div>
     )
 }
