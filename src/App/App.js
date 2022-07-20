@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
 import { getReservations } from '../apiCalls';
+import ReservationArray from '../ReservationArray/ReservationArray';
+
 class App extends Component {
   state = {
     name: '',
     date: '',
     time: '',
     number: '',
+    reservations: [],
     loading: false,
   }
 
   componentDidMount() {
-    getReservations().then(data => console.log(data))
+    getReservations().then(data => this.setState({reservations: data}))
   }
 
 
@@ -24,7 +27,7 @@ class App extends Component {
 
         </div>
         <div className='resy-container'>
-          
+          <ReservationArray reservations={this.state.reservations} />
         </div>
       </div>
     )
